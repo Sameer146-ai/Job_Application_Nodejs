@@ -1,12 +1,12 @@
 const express = require("express");
 
+const dotenv = require("dotenv")
+dotenv.config();
+
 const mongoose = require("mongoose")
 
 const jobRoutes = require("./routes/job.route")
 
-const dotenv = require("dotenv")
-
-dotenv.config();
 
 const app = express();
 
