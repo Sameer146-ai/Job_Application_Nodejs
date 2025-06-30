@@ -4,17 +4,19 @@ const mongoose = require("mongoose")
 
 const jobRoutes = require("./routes/job.route")
 
+const dotenv = require("dotenv")
+
+dotenv.config();
 
 const app = express();
 
 app.use(express.json()); 
 
-mongoose.connect("mongodb+srv://sameerrahangdale63:YymxW8dYcUgXqWKv@cluster0.3knqum2.mongodb.net/")
+mongoose.connect(process.env.DB_URL)
 .then(() => console.log(`DB Connected successfully`))
 .catch(err => console.log(`Error connecting database`, err));
 
-
-
+// console.log(process.env.DB_URL);
 app.use( jobRoutes);
 
 
